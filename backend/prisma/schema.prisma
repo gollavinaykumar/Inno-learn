@@ -14,16 +14,16 @@ datasource db {
 }
 
 model User {
-  id         String    @id @default(auto()) @map("_id") @db.ObjectId
-  email      String    @unique
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
+  email      String     @unique
   name       String
   password   String
   mobile     String
   image      String?
-  role       Role      @default(Student)
-  createdAt  DateTime  @default(now())
-  isloggedIn Boolean   @default(false)
-  membership String    @default("Standard")
+  role       Role       @default(Student)
+  createdAt  DateTime   @default(now())
+  isloggedIn Boolean    @default(false)
+  membership Membership @default(Standard)
   course     Course[]
   payment    Payment[]
 }
@@ -47,6 +47,9 @@ model Course {
 
 enum Role {
   Student
-  Teacher
-  Software_Enginner
+}
+
+enum Membership {
+  Standard
+  Premium
 }

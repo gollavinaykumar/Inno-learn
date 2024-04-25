@@ -72,7 +72,7 @@ export default function SignInSide() {
       const singleUser = await checkUser(user);
       console.log(singleUser);
       if (singleUser.isloggedIn === true) {
-        setUser(user);
+        setUser(singleUser);
         message.success("login success");
         Navigate();
       } else {
@@ -213,7 +213,7 @@ export function LoginHeader() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ backgroundColor: "black" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AutoStoriesIcon
